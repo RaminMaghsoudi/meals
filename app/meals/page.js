@@ -4,6 +4,27 @@ import MealsGrid from "@/components/meals/meals-grid";
 import { getMeals } from "@/lib/FD";
 import { Suspense } from "react";
 
+// export const metadata = {
+//   title: "All Meals",
+//   description: "Now show All Meals",
+// };
+export const metadata = {
+  title: "All Meals",
+  description: "Create & Show All Meals Delicious",
+  generator: "Next.js",
+  applicationName: "Meals",
+  referrer: "origin-when-cross-origin",
+  keywords: ["Next.js", "React", "JavaScript"],
+  authors: [{ name: "TESSA" }, { name: "TESSA", url: "Tessa24.com" }],
+  creator: "Ramin Maghsoudi",
+  publisher: "DSC",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+};
+
 async function Meals() {
   const GM = await getMeals();
   return <MealsGrid meals={GM} />;

@@ -3,6 +3,17 @@ import classess from "./page.module.css";
 import { Box } from "@mui/material";
 import { getMeal } from "@/lib/FD";
 import { notFound } from "next/navigation";
+import { Description } from "@mui/icons-material";
+
+export async function generateMetadata({ params }) {
+  const { mealSlug } = await params;
+  const meal = await getMeal(mealSlug);
+  if (!meal) notFound();
+  return {
+    title: meal.title,
+    description: meal.summary,
+  };
+}
 
 export default async function ShareMealPage({ params }) {
   const { mealSlug } = await params;
